@@ -1,13 +1,14 @@
 <?php 
-    $paragraph = "Oh, mama, mama, mama
-    I just shot a man down
-    In central station
-    In front of a big ol' crowd
-    Oh, why? Oh, why?
-    Oh, mama, mama, mama
-    I just shot a man down
-    In central station";
+    $paragraph = "Piantala con sti bonghi
+    Non siamo mica in Africa
+    Porti i capelli lunghi
+    Ma devi fare pratica
+    Sei sempre fuori tempo
+    Così mi uccidi l'Africa
+    Che avrà pure tanti problemi
+    Ma di sicuro non quello del ritmo";
 
+    $paragraphCensored = str_replace($_GET['badword'], '***', $paragraph);
 
 ?>
 
@@ -30,12 +31,24 @@
         <p>
             Lunghezza del paragrafo: <?php echo strlen($paragraph); ?>
         </p>
-        <label for="bad-word">
-            Scrivi una bad word:
-        </label>
-        <input type="text" id="bad-word" name="bad-word">
-        <button>
-            Invia
-        </button>
+
+        <p>
+            La tua brutta parola è: <?php echo $_GET['badword']; ?>
+        </p>
+
+        <form action="" method="GET">
+
+            <input type="text" name="badword" placeholder="Scrivi una brutta parola...">
+            <button>
+                Invia
+            </button>
+        </form>
+
+        <p>
+            Paragrafo censurato: <?php echo $paragraphCensored ?>
+        </p>
+        <p>
+            Lunghezza del paragrafo censurato: <?php echo strlen($paragraphCensored); ?>
+        </p>
     </body>
 </html>
